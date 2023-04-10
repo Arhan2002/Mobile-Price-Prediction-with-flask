@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mobile Range Predictor</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+  <script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Ultra&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Website Title -->
+
+  <div class="container">
+
+    <!-- <div class="icon">
+      <h2 class="logo">HDP</h2>
+  </div> -->
+
+    <h2 class='container-heading'>
+      <span class="heading_font">  Mobile Price Predictor</span>
+    </h2>
+    
+    <div class='description'>
+      <p>A Machine Learning Web Application that predicits range of Mobile Prices, Built with Flask.</p><br>
+        <p>(This model is 96.4% accurate)</p>
+    </div>
+    <a class="btn btn-outline-primary" href="/logout">Logout</a>
+  </div>
+  
+  <!-- Text Area -->
+  <div class="ml-container">
+    <form action="{{ url_for('predict')}}" method="POST"> 
+
+      
+        <label for="battery">Battery Power</label>
+        <input type="text" id="battery" name="battery" placeholder="Your battery.."><br>
+
+
+
+        <label for="blue">Blue Colour</label>
+        <select id="blue" name="blue">
+          <option selected>----select option----</option>
+          <option value="1">blue</option>
+          <option value="0">not blue</option>
+        </select><br>
+
+
+        <label for="clocks">clocks</label>
+        <input type="text" id="clocks" name="clocks" placeholder="A number in range [0-10] "><br>
+
+
+        <label for="cp">Dual Sim</label>
+        <select id="cp" name="cp">
+          <option selected>----select option----</option>
+          <option value="0">Yes</option>
+          <option value="1">No</option>
+        </select><br>
+
+
+        <label for="fc">Fc</label>
+        <select id="fc" name="fc">
+          <option selected>----select option----</option>
+          <option value="1">yes</option>
+          <option value="0">no</option>
+        </select><br>
+
+
+        <label for="fbs">Four G</label>
+        <select id="fbs" name="fbs">
+          <option selected>----select option----</option>
+          <option value="1">yes</option>
+          <option value="0">no</option>
+        </select><br>
+
+        <label for="intm">intm</label>
+        <input type="text" id="intm" name="intm" placeholder="A number in range [0-10] "><br>
+
+        <label for="mdep">mdep</label>
+        <input type="text" id="mdep" name="mdep" placeholder="A number in range [0-100] "><br>
+
+
+        <label for="trestbps">Mobile Weight</label>
+        <input type="text" id="trestbps" name="trestbps" placeholder="A number in range [94-200] mg"><br>
+
+
+        <label for="ncore">ncore</label>
+        <input type="text" id="ncore" name="ncore" placeholder="A number in range [0-10] mg"><br>
+
+
+        <label for="pc">pc</label>
+        <input type="text" id="pc" name="pc" placeholder="A number in range [0-20] "><br>
+
+        <label for="px_h">px_h</label>
+        <input type="text" id="px_h" name="px_h" placeholder="A number in range [0-2000] "><br>
+
+
+        <label for="px_w">px_w</label>
+        <input type="text" id="px_w" name="px_w" placeholder="A number in range [0-2000] "><br>
+
+
+
+        <label for="ramm">ramm</label>
+        <input type="text" id="ramm" name="ramm" placeholder="A number in range [1000-5000] "><br>
+
+
+
+        <label for="sc_h">sc_h</label>
+        <input type="text" id="sc_h" name="sc_h" placeholder="A number in range [1-20] "><br>
+
+        <label for="sc_w">talk time</label>
+        <input type="text" id="sc_w" name="sc_w" placeholder="A number in range [1-20] "><br>
+
+
+
+        <label for="chol">talk time</label>
+        <input type="text" id="chol" name="chol" placeholder="A number in range [2-20] "><br>
+
+
+   
+        <label for="threeg">threeg</label>
+        <select id="threeg" name="threeg">
+          <option selected>----select option----</option>
+          <option value="0">yes</option>
+          <option value="1">no</option>
+        </select><br>
+
+        <label for="restecg">Touch Screen</label>
+        <select id="restecg" name="restecg">
+          <option selected>----select option----</option>
+          <option value="0">yes</option>
+          <option value="1">no</option>
+        </select><br>
+
+
+        <label for="wifi">wifi</label>
+        <select id="wifi" name="wifi">
+          <option selected>----select option----</option>
+          <option value="0">yes</option>
+          <option value="1">no</option>
+        </select><br>
+        
+      
+
+      <input type="submit" class="my-cta-button" value="Predict">
+    </form>
+  </div>
+
+  <!-- Footer -->
+  <div class='footer'>
+    <div class="contact">
+      <a target="_blank" href=" "><i
+          class="fab fa-github fa-lg contact-icon"></i></a>
+    </div>
+    
+    <p class='footer-description'>Made by Arhanjit Sodhi & Aditya</p>
+  </div>
+
+</body>
+
+</html>
